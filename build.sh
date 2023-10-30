@@ -72,6 +72,16 @@ function build_firmware(){
     rm -rf feeds/gl_feed_common/golang
     #svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/gl_feed_common/golang
     cp -rf feeds/packages/lang/golang feeds/gl_feed_common/golang
+
+    rm -rf feeds/packages/net/adguardhome
+    rm -rf feeds/luci/applications/luci-app-adguardhome
+    svn co https://github.com/281677160/openwrt-package/branches/Official/luci-app-adguardhome custom/luci-app-adguardhome
+    svn co https://github.com/281677160/openwrt-package/branches/Official/relevance/adguardhome custom/adguardhome
+    
+    rm -rf feeds/luci/applications/luci-app-smartdns
+    rm -rf feeds/packages/net/smartdns
+    svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns custom/luci-app-smartdns
+    svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns custom/smartdns
     
     # update tailscale
     rm -rf feeds/gl_feed_common/tailscale
